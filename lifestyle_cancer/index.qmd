@@ -8,5 +8,9 @@ authors:
 bibliography: references.bib
 ---
 
+```{python}
+print("Hello, World!")
+```
+
 ## Section
 This is a simple placeholder for the manuscript's main document [@knuth84].

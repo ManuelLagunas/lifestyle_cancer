@@ -2,4 +2,7 @@
 .venv/
 env/
 bin/
+_freeze/
+_manuscript/
+share/
 *.cfg

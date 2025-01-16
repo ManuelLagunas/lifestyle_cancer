@@ -8,8 +8,11 @@ authors:
 bibliography: references.bib
 ---
 
+# ========== Libraries and Setup ==========
 ```{python}
-print("Hello, World!")
+import pandas as pd
+import matplotlib.pyplot as plt
+
 ```
 
 ## Section

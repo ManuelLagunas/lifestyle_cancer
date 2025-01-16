@@ -25,3 +25,20 @@ csv_path = os.path.join('cancer-probabilities.csv')
 df = pd.read_csv(csv_path)
 ```
 
+
+```{python}
+# Dataset shape
+df.shape
+```
+
+
+```{python}
+# Dataset sample
+df.sample(10)
+```
+
+
+```{python}
+# Columns
+df.columns
+```

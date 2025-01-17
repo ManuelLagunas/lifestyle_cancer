@@ -10,15 +10,17 @@ import sys
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.cm as cm
 import seaborn as sns
 import warnings
+from functions import to_snake_case, convert_columns_to_snake_case
 
 # Set the default style
 sys.path.append(os.getcwd()) # Add the current working directory to the path
 # warnings.filterwarnings('ignore')
 ```
 
-
+# ---------- Understanding and Reading The Data ----------
 ```{python}
 # Read the dataset
 csv_path = os.path.join('cancer-probabilities.csv')
@@ -41,4 +43,132 @@ df.sample(10)
 ```{python}
 # Columns
 df.columns
+```
+
+
+# ========== Exploratory Data Analysis ==========
+```{python}
+df.info()
+```
+
+```{python}
+df.describe()
+```
+
+#  ---------- Missing Values ----------
+```{python}
+# Check for missing values
+df.isnull().any()
+```
+
+```{python}
+df.isnull().sum()
+```
+
+```{python}
+missing_values = df.isnull().sum()
+total_rows = df.shape[0]
+missing_values_percentage = (missing_values / total_rows) * 100
+missing_values_percentage
+```
+
+# ---------- Categorical Analysis ----------
+# Smoking Habit
+```{python}
+smoking_counts = df['Smoking Habit'].value_counts(dropna=False)
+smoking_counts
+```
+
+```{python}
+num_colors = len(smoking_counts)
+cmap = cm.get_cmap('tab20', num_colors)
+colors = cmap(range(num_colors))
+
+plt.figure(figsize=(10, 6))
+smoking_counts.plot(kind='bar', color=colors)
+plt.title('Smoking Habit Distribution')
+plt.xlabel('Smoking Habit')
+plt.ylabel('Count')
+plt.xticks(rotation=45)
+plt.show()
+```
+
+# Drinking Habit
+```{python}
+drinking_counts = df['Drinking Habit'].value_counts(dropna=False)
+drinking_counts
+```
+
+```{python}
+num_colors = len(drinking_counts)
+cmap = cm.get_cmap('tab20', num_colors)
+colors = cmap(range(num_colors))
+
+plt.figure(figsize=(10, 6))
+drinking_counts.plot(kind='bar', color=colors)
+plt.title('Drinking Habit Distribution')
+plt.xlabel('Drinking Habit')
+plt.ylabel('Count')
+plt.xticks(rotation=45)
+plt.show()
+```
+
+# Biking Habit
+```{python}
+biking_counts = df['Biking Habit'].value_counts(dropna=False)
+biking_counts
+```
+
+```{python}
+num_colors = len(biking_counts)
+cmap = cm.get_cmap('tab20', num_colors)
+colors = cmap(range(num_colors))
+
+plt.figure(figsize=(10, 6))
+biking_counts.plot(kind='bar', color=colors)
+plt.title('Binking Habit Distribution')
+plt.xlabel('Biking Habit')
+plt.ylabel('Count')
+plt.xticks(rotation=45)
+plt.show()
+```
+
+# Walking Habit
+```{python}
+walking_counts = df['Walking Habit'].value_counts(dropna=False)
+walking_counts
+```
+
+```{python}
+num_colors = len(walking_counts)
+cmap = cm.get_cmap('tab20', num_colors)
+colors = cmap(range(num_colors))
+
+plt.figure(figsize=(10, 6))
+walking_counts.plot(kind='bar', color=colors)
+plt.title('Walking Habit Distribution')
+plt.xlabel('Walking Habit')
+plt.ylabel('Count')
+plt.xticks(rotation=45)
+plt.show()
+```
+
+# Jogging Habit
+```{python}
+jogging_counts = df['Jogging Habit'].value_counts(dropna=False)
+jogging_counts
+```
+
+```{python}
+num_colors = len(jogging_counts)
+cmap = cm.get_cmap('tab20', num_colors)
+colors = cmap(range(num_colors))
+
+plt.figure(figsize=(10, 6))
+jogging_counts.plot(kind='bar', color=colors)
+plt.title('Jogging Habit Distribution')
+plt.xlabel('Jogging Habit')
+plt.ylabel('Count')
+plt.xticks(rotation=45)
+plt.show()
 ```

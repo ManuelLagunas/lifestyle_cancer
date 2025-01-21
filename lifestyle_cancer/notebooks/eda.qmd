@@ -21,6 +21,15 @@ abstract: |
   - Jogging Habit: Measures the frequency of jogging activity (e.g., High, Medium, Low).
   
   - Probability of Cancer: A numerical value representing the estimated likelihood of developing cancer, ranging from 0 to 1.
+
+  **Insights:**
+
+  - The dataset contains 32% missing values in the 'Smoking Habit' and 'Drinking Habit' columns. This can be explained by the fact that some individuals may not smoke or drink, as stated in the data dictionary. Therefore, I suggest replacing the missing values with 'None' in both columns.
+
+  - The 'Probability of Cancer' column does not exhibit a normal distribution. As shown in @fig-probability-of-cancer-distribution-graph, the distribution is slightly right-skewed. The presence of multiple peaks and lack of symmetry suggest that there are some factors that may have an influence on the probability of cancer and warrant further investigation.
+
+  
+
 ---
 
 # ========== Understanding and Reading The Data ==========
@@ -198,6 +207,8 @@ plt.show()
 
 #  ---------- Numerical data ----------
 ```{python}
+#| label: fig-probability-of-cancer-distribution-graph
+
 plt.figure(figsize=(10, 6))
 sns.histplot(df['Probability of Cancer'].dropna(), bins=10, kde=True, edgecolor='k', alpha=0.7)
 plt.title('Distribution of Probability of Cancer')

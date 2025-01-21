@@ -28,13 +28,14 @@ abstract: |
 
   - The 'Probability of Cancer' column does not exhibit a normal distribution. As shown in @fig-probability-of-cancer-distribution-graph, the distribution is slightly right-skewed. The presence of multiple peaks and lack of symmetry suggest that there are some factors that may have an influence on the probability of cancer and warrant further investigation.
 
-  
+  - Most of the columns contains categorical data, which will require encoding before applying machine learning algorithms.
 
+  - It would be interesting to explore the relationships between lifestyle habits and the probability of cancer through correlation analysis and visualization techniques.
 ---
 
-# ========== Understanding and Reading The Data ==========
+# Understanding and Reading The Data
 
-# ---------- Libraries an setup ----------
+## Libraries an setup
 ```{python}
 import os
 import sys
@@ -51,7 +52,7 @@ sys.path.append(os.getcwd()) # Add the current working directory to the path
 # warnings.filterwarnings('ignore')
 ```
 
-# ---------- Reading The Data ----------
+## Reading The Data
 ```{python}
 # Read the dataset
 csv_path = os.path.join('cancer-probabilities.csv')
@@ -59,7 +60,7 @@ df = pd.read_csv(csv_path)
 ```
 
 
-# ---------- Understanding the data ----------
+## Understanding the data
 ```{python}
 # Dataset shape
 df.shape
@@ -78,7 +79,7 @@ df.columns
 ```
 
 
-# ========== Exploratory Data Analysis ==========
+# Exploratory Data Analysis
 ```{python}
 df.info()
 ```
@@ -87,7 +88,7 @@ df.info()
 df.describe()
 ```
 
-#  ---------- Missing Values ----------
+## Missing Values
 ```{python}
 # Check for missing values
 df.isnull().any()
@@ -104,8 +105,8 @@ missing_values_percentage = (missing_values / total_rows) * 100
 missing_values_percentage
 ```
 
-# ---------- Categorical Analysis ----------
-# Smoking Habit
+## Categorical Analysis
+### Smoking Habit
 ```{python}
 smoking_counts = df['Smoking Habit'].value_counts(dropna=False)
 smoking_counts
@@ -125,7 +126,7 @@ plt.xticks(rotation=45)
 plt.show()
 ```
 
-# Drinking Habit
+### Drinking Habit
 ```{python}
 drinking_counts = df['Drinking Habit'].value_counts(dropna=False)
 drinking_counts
@@ -145,7 +146,7 @@ plt.xticks(rotation=45)
 plt.show()
 ```
 
-# Biking Habit
+### Biking Habit
 ```{python}
 biking_counts = df['Biking Habit'].value_counts(dropna=False)
 biking_counts
@@ -165,7 +166,7 @@ plt.xticks(rotation=45)
 plt.show()
 ```
 
-# Walking Habit
+### Walking Habit
 ```{python}
 walking_counts = df['Walking Habit'].value_counts(dropna=False)
 walking_counts
@@ -185,7 +186,7 @@ plt.xticks(rotation=45)
 plt.show()
 ```
 
-# Jogging Habit
+### Jogging Habit
 ```{python}
 jogging_counts = df['Jogging Habit'].value_counts(dropna=False)
 jogging_counts
@@ -205,7 +206,7 @@ plt.xticks(rotation=45)
 plt.show()
 ```
 
-#  ---------- Numerical data ----------
+## Numerical data
 ```{python}
 #| label: fig-probability-of-cancer-distribution-graph
 

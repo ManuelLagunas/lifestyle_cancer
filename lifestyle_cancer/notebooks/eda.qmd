@@ -35,7 +35,7 @@ abstract: |
 
 # Understanding and Reading The Data
 
-## Libraries an setup
+## Libraries and setup
 ```{python}
 import os
 import sys
@@ -45,7 +45,6 @@ import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import seaborn as sns
 import warnings
-from functions import to_snake_case, convert_columns_to_snake_case
 
 # Set the default style
 sys.path.append(os.getcwd()) # Add the current working directory to the path

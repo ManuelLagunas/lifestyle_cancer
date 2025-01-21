@@ -3,3 +3,25 @@ title: "Fixing the dataset"
 abstract: "This notebook contains the code to fix the dataset and create the data set to work with."
 ---
 
+# Reading The Data
+
+## Libraries and setup
+```{python}
+import os
+import sys
+import re
+import pandas as pd
+import warnings
+from functions import to_snake_case, convert_columns_to_snake_case
+
+# Set the default style
+sys.path.append(os.getcwd()) # Add the current working directory to the path
+# warnings.filterwarnings('ignore')
+```
+
+## Reading The Data
+```{python}
+# Read the dataset
+csv_path = os.path.join('cancer_probabilities_raw.csv')
+df = pd.read_csv(csv_path)
+```

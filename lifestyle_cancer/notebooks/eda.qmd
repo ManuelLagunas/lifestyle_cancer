@@ -1,9 +1,31 @@
 ---
 title: Exploratory Data Analysis
+abstract: |
+  This notebook contains the exploratory data analysis of the cancer probabilities dataset.
+  
+  **Dataset Description:**
+  This is a relatively small dataset with 50 rows and 7 columns. The dataset is designed to explore potential relationships between lifestyle habits and the probability of cancer. 
+  
+  The dataset contains the following columns:
+  
+  - Sr No. A unique identifier for each observation.
+  
+  - Smoking Habit: Categorizes individuals based on their smoking frequency (e.g., Heavy, Moderate, Occasional, None).
+  
+  - Drinking Habit: Categorizes individuals based on their alcohol consumption frequency (e.g., Frequent, Occasional, None).
+  
+  - Biking Habit: Measures the frequency of biking activity (e.g., High, Medium, Low).
+  
+  - Walking Habit: Measures the frequency of walking activity (e.g., High, Medium, Low).
+  
+  - Jogging Habit: Measures the frequency of jogging activity (e.g., High, Medium, Low).
+  
+  - Probability of Cancer: A numerical value representing the estimated likelihood of developing cancer, ranging from 0 to 1.
 ---
 
-# ========== Libraries and Setup ==========
+# ========== Understanding and Reading The Data ==========
 
+# ---------- Libraries an setup ----------
 ```{python}
 import os
 import sys
@@ -20,7 +42,7 @@ sys.path.append(os.getcwd()) # Add the current working directory to the path
 # warnings.filterwarnings('ignore')
 ```
 
-# ---------- Understanding and Reading The Data ----------
+# ---------- Reading The Data ----------
 ```{python}
 # Read the dataset
 csv_path = os.path.join('cancer-probabilities.csv')
@@ -28,6 +50,7 @@ df = pd.read_csv(csv_path)
 ```
 
 
+# ---------- Understanding the data ----------
 ```{python}
 # Dataset shape
 df.shape
@@ -170,5 +193,24 @@ plt.title('Jogging Habit Distribution')
 plt.xlabel('Jogging Habit')
 plt.ylabel('Count')
 plt.xticks(rotation=45)
+plt.show()
+```
+
+#  ---------- Numerical data ----------
+```{python}
+plt.figure(figsize=(10, 6))
+sns.histplot(df['Probability of Cancer'].dropna(), bins=10, kde=True, edgecolor='k', alpha=0.7)
+plt.title('Distribution of Probability of Cancer')
+plt.xlabel('Probability of Cancer')
+plt.ylabel('Frequency')
+plt.show()
+```
+
+
+```{python}
+plt.figure(figsize=(10, 6))
+sns.boxplot(x=df['Probability of Cancer'].dropna())
+plt.title('Boxplot of Probability of Cancer')
+plt.xlabel('Probability of Cancer')
 plt.show()
 ```

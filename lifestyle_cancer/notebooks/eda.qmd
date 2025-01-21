@@ -55,7 +55,7 @@ sys.path.append(os.getcwd()) # Add the current working directory to the path
 ## Reading The Data
 ```{python}
 # Read the dataset
-csv_path = os.path.join('cancer-probabilities.csv')
+csv_path = os.path.join('cancer_probabilities_raw.csv')
 df = pd.read_csv(csv_path)
 ```
 

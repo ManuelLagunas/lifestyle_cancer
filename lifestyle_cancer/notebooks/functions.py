@@ -7,14 +7,28 @@ import re
 def to_snake_case(column_name):
     """
     Converts a column name to snake_case format.
+
+    This function takes a column name as input and returns a new string in snake_case format. 
+    Snake case is a naming convention where all letters are lowercase and words are separated by underscores (e.g., 'my_column_name'). 
+    It enhances code readability and maintainability, particularly in large projects.
+
+    Args:
+        column_name (str): The input column name.
+
+    Returns:
+        str: The column name converted to snake_case.
     """
-    # Replaces spaces with underscores
+
+    # Replace spaces with underscores
     column_name = column_name.replace(' ', '_')
-    # Replaces patterns of an uppercase letter following a lowercase letter with an underscore
-    column_name = re.sub('(.)([A-Z][a-z]+)', r'\1_\2', column_name)
-    # Replaces patterns of a lowercase letter or number followed by an uppercase letter with an underscore
-    column_name = re.sub('([a-z0-9])([A-Z])', r'\1_\2', column_name)
-    # Converts the entire column name to lowercase
+
+    # Insert underscores before uppercase letters (except the first letter)
+    column_name = re.sub(r'(?<!^)(?=[A-Z])', '_', column_name)
+
+    # Remove any duplicate underscores
+    column_name = re.sub(r'_+', '_', column_name) 
+
+    # Convert the entire string to lowercase
     return column_name.lower()
 
 

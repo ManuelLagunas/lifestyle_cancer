@@ -25,3 +25,18 @@ sys.path.append(os.getcwd()) # Add the current working directory to the path
 csv_path = os.path.join('cancer_probabilities_raw.csv')
 df = pd.read_csv(csv_path)
 ```
+
+# Fixing the dataset
+
+## Fixing the column names
+
+```{python}
+df.columns
+```
+```{python}
+df = convert_columns_to_snake_case(df)
+```
+
+```{python}
+df.columns
+```

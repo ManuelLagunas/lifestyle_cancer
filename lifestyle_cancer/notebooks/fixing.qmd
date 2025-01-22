@@ -13,7 +13,7 @@ import re
 import string
 import pandas as pd
 import warnings
-from functions import to_snake_case, convert_columns_to_snake_case
+from functions import to_snake_case, convert_columns_to_snake_case, calculate_missing_values_percentage
 
 # Set the default style
 sys.path.append(os.getcwd()) # Add the current working directory to the path
@@ -44,5 +44,16 @@ df.columns
 
 ## Fixing the missing values
 ```{python}
-df.info()
+missing_values_percentage = calculate_missing_values_percentage(df)
+missing_values_percentage
+```
+
+```{python}
+df['smoking_habit'] = df['smoking_habit'].fillna('None')
+df['drinking_habit'] = df['drinking_habit'].fillna('None')
+```
+
+```{python}
+missing_values_percentage = calculate_missing_values_percentage(df)
+missing_values_percentage
 ```

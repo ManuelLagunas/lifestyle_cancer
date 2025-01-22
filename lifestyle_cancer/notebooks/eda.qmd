@@ -45,6 +45,7 @@ import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import seaborn as sns
 import warnings
+from fuctions import calculate_missing_values_percentage
 
 # Set the default style
 sys.path.append(os.getcwd()) # Add the current working directory to the path
@@ -98,9 +99,7 @@ df.isnull().sum()
 ```
 
 ```{python}
-missing_values = df.isnull().sum()
-total_rows = df.shape[0]
-missing_values_percentage = (missing_values / total_rows) * 100
+missing_values_percentage = calculate_missing_values_percentage(df)
 missing_values_percentage
 ```
 

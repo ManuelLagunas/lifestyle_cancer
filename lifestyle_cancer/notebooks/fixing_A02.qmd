@@ -1,6 +1,8 @@
 ---
 title: "Fixing the dataset"
 abstract: "This notebook contains the code to fix the dataset and create the data set to work with."
+Fixes the dataset by converting the column names to snake case, filling the missing values, and saving the fixed dataset.
+
 ---
 
 # Reading The Data
@@ -58,8 +60,17 @@ missing_values_percentage = calculate_missing_values_percentage(df)
 missing_values_percentage
 ```
 
+## Droping the not needed columns
+```{python}
+df = df.drop(columns=['sr_no'])
+```
+
 # Saving the fixed dataset
 ```{python}
 output_path = os.path.join('cancer_probabilities.csv')
 df.to_csv(output_path, index=False)
+```
+
+```{python}
+df.head()
 ```

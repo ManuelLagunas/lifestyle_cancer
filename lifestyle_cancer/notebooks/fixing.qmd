@@ -57,3 +57,9 @@ df['drinking_habit'] = df['drinking_habit'].fillna('None')
 missing_values_percentage = calculate_missing_values_percentage(df)
 missing_values_percentage
 ```
+
+# Saving the fixed dataset
+```{python}
+output_path = os.path.join('cancer_probabilities.csv')
+df.to_csv(output_path, index=False)
+```

@@ -3,6 +3,25 @@
 # ---------- libraries ----------
 import re
 import string
+import pandas as pd
+
+#  ---------- Function to Calculate the percentage of missing values for each column in a DataFrame ----------
+def calculate_missing_values_percentage(df):
+    """
+    Calculate the percentage of missing values for each column in a DataFrame.
+
+    Args:
+        df (pd.DataFrame): The input DataFrame.
+
+    Returns:
+        pd.Series: A Series containing the percentage of missing values for each column.
+    """
+    missing_values = df.isnull().sum()
+    total_rows = df.shape[0]
+    missing_values_percentage = (missing_values / total_rows) * 100
+    return missing_values_percentage
+
+
 
 #  ---------- Function to Converts a column name to snake_case format ----------
 def to_snake_case(column_name):
@@ -20,21 +39,21 @@ def to_snake_case(column_name):
         str: The column name converted to snake_case.
     """
     # Remove punctuation
-    column_name = column_name.translate(str.maketrans('', '', string.punctuation))
+    column_name = column_name.translate(str.maketrans('', '', string.punctuation)) 
 
-    # Replace spaces and hyphens with underscores
-    column_name = re.sub(r'[\s-]+', '_', column_name)
+    # Replace spaces with underscores
+    column_name = column_name.replace(' ', '_')
 
     # Insert underscores before uppercase letters (except the first letter)
     column_name = re.sub(r'(?<!^)(?=[A-Z])', '_', column_name)
 
+    # Remove any duplicate underscores
+    column_name = re.sub(r'_+', '_', column_name)
+
     # Convert the entire string to lowercase
-    column_name = column_name.lower()
+    return column_name.lower()
 
-    # Remove any leading or trailing underscores
-    column_name = column_name.strip('_')
 
-    return column_name
 
 
 #  ---------- Function to Converts all column names in a DataFrame to snake_case format ----------

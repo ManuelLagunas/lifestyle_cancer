@@ -41,3 +41,8 @@ df = convert_columns_to_snake_case(df)
 ```{python}
 df.columns
 ```
+
+## Fixing the missing values
+```{python}
+df.info()
+```

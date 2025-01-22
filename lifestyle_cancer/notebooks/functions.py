@@ -26,7 +26,10 @@ def to_snake_case(column_name):
     column_name = re.sub(r'(?<!^)(?=[A-Z])', '_', column_name)
 
     # Remove any duplicate underscores
-    column_name = re.sub(r'_+', '_', column_name) 
+    column_name = re.sub(r'_+', '_', column_name)
+
+    # Remove punctuation
+    column_name = column_name.translate(str.maketrans('', '', string.punctuation)) 
 
     # Convert the entire string to lowercase
     return column_name.lower()

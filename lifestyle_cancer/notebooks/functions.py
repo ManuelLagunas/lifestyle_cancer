@@ -64,3 +64,20 @@ def convert_columns_to_snake_case(df):
     # Applies the to_snake_case function to each column name in the DataFrame
     df.columns = [to_snake_case(col) for col in df.columns]
     return df
+
+
+#  ---------- Function to create a contengency table ----------
+def contingency_table(df, column):
+    """
+    Create a contingency table between a specified column and the 'probability_of_cancer' column.
+
+    Args:
+        df (pd.DataFrame): The input DataFrame.
+        column (str): The name of the column to compare with 'probability_of_cancer'.
+
+    Returns:
+        pd.DataFrame: A contingency table.
+    """
+    # Create a contingency table
+    table = pd.crosstab(df[column], df['probability_of_cancer'])
+    return table

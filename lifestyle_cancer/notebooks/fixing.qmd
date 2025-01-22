@@ -10,6 +10,7 @@ abstract: "This notebook contains the code to fix the dataset and create the dat
 import os
 import sys
 import re
+import string
 import pandas as pd
 import warnings
 from functions import to_snake_case, convert_columns_to_snake_case

@@ -3,4 +3,86 @@ title: "Preparation of the data"
 format: html
 abstract: "This notebook contains the code to prepare the data for the analysis. Like encoding the categorical variables and split the data into training and testing sets."
 ---
+# Reading and setup
 
+## Libraries and setup
+```{python}
+import os
+import sys
+import pandas as pd
+import warnings
+from sklearn.preprocessing import OrdinalEncoder
+
+# Set the default style
+sys.path.append(os.getcwd()) # Add the current working directory to the path
+# warnings.filterwarnings('ignore')
+```
+
+## Reading The Data
+```{python}
+# Read the dataset
+csv_path = os.path.join('cancer_probabilities.csv')
+df = pd.read_csv(csv_path)
+```
+
+# Data encoding
+
+## Encoding smoking habit
+```{python}
+smoking_unique = df['smoking_habit'].unique()
+smoking_unique
+```
+
+```{python}
+smoking_categories = [['No Smoking','Occasional','Moderate','Heavy']]
+encorder = OrdinalEncoder(categories=smoking_categories)
+df['smoking_habit'] = encorder.fit_transform(df[['smoking_habit']]).astype(int)
+```
+
+## Encoding drinking habit
+```{python}
+drinking_unique = df['drinking_habit'].unique()
+drinking_unique
+```
+
+```{python}
+drinking_categories = [['No Drinking','Occasional','Moderate','Frequent']]
+encorder = OrdinalEncoder(categories=drinking_categories)
+df['drinking_habit'] = encorder.fit_transform(df[['drinking_habit']]).astype(int)
+```
+
+## Encoding biking habit
+```{python}
+biking_unique = df['biking_habit'].unique()
+biking_unique
+```
+
+```{python}
+biking_categories = [['Low','Medium','High']]
+encorder = OrdinalEncoder(categories=biking_categories)
+df['biking_habit'] = encorder.fit_transform(df[['biking_habit']]).astype(int)
+```
+
+## Encoding walking habit
+```{python}
+walking_unique = df['walking_habit'].unique()
+walking_unique
+```
+
+```{python}
+walking_categories = [['Low','Medium','High']]
+encorder = OrdinalEncoder(categories=walking_categories)
+df['walking_habit'] = encorder.fit_transform(df[['walking_habit']]).astype(int)
+```
+
+## Encoding jogging habit
+```{python}
+jogging_unique = df['jogging_habit'].unique()
+jogging_unique
+```
+
+```{python}
+jogging_categories = [['Low','Medium','High']]
+encorder = OrdinalEncoder(categories=jogging_categories)
+df['jogging_habit'] = encorder.fit_transform(df[['jogging_habit']]).astype(int)
+```

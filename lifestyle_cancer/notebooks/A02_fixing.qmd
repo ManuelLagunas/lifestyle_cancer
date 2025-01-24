@@ -51,8 +51,8 @@ missing_values_percentage
 ```
 
 ```{python}
-df['smoking_habit'] = df['smoking_habit'].fillna('None')
-df['drinking_habit'] = df['drinking_habit'].fillna('None')
+df['smoking_habit'] = df['smoking_habit'].fillna('No Smoking')
+df['drinking_habit'] = df['drinking_habit'].fillna('No Drinking')
 ```
 
 ```{python}

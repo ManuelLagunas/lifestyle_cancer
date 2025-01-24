@@ -1,51 +1,51 @@
 smoking_habit,drinking_habit,biking_habit,walking_habit,jogging_habit,probability_of_cancer
 Heavy,Frequent,Low,Low,Low,0.8
 Occasional,Moderate,High,High,High,0.2
-None,None,High,High,High,0.1
+No Smoking,No Drinking,High,High,High,0.1
 Heavy,Frequent,Low,Low,Low,0.9
 Moderate,Occasional,Medium,Medium,Medium,0.4
-None,None,High,High,High,0.05
+No Smoking,No Drinking,High,High,High,0.05
 Heavy,Frequent,Low,Low,Low,0.75
 Moderate,Occasional,Medium,Medium,Medium,0.3
-None,None,High,High,High,0.02
+No Smoking,No Drinking,High,High,High,0.02
 Heavy,Frequent,Low,Low,Low,0.85
 Moderate,Occasional,Medium,Medium,Medium,0.45
-None,None,High,High,High,0.01
+No Smoking,No Drinking,High,High,High,0.01
 Heavy,Frequent,Low,Low,Low,0.9
 Moderate,Occasional,Medium,Medium,Medium,0.35
-None,None,High,High,High,0.03
+No Smoking,No Drinking,High,High,High,0.03
 Heavy,Frequent,Low,Low,Low,0.7
 Moderate,Occasional,Medium,Medium,Medium,0.4
-None,None,High,High,High,0.05
+No Smoking,No Drinking,High,High,High,0.05
 Heavy,Frequent,Low,Low,Low,0.8
 Moderate,Occasional,Medium,Medium,Medium,0.3
-None,None,High,High,High,0.02
+No Smoking,No Drinking,High,High,High,0.02
 Heavy,Frequent,Low,Low,Low,0.9
 Moderate,Occasional,Medium,Medium,Medium,0.4
-None,None,High,High,High,0.01
+No Smoking,No Drinking,High,High,High,0.01
 Heavy,Frequent,Low,Low,Low,0.75
 Moderate,Occasional,Medium,Medium,Medium,0.35
-None,None,High,High,High,0.03
+No Smoking,No Drinking,High,High,High,0.03
 Heavy,Frequent,Low,Low,Low,0.8
 Moderate,Occasional,Medium,Medium,Medium,0.4
-None,None,High,High,High,0.05
+No Smoking,No Drinking,High,High,High,0.05
 Heavy,Frequent,Low,Low,Low,0.9
 Moderate,Occasional,Medium,Medium,Medium,0.3
-None,None,High,High,High,0.02
+No Smoking,No Drinking,High,High,High,0.02
 Heavy,Frequent,Low,Low,Low,0.75
 Moderate,Occasional,Medium,Medium,Medium,0.45
-None,None,High,High,High,0.01
+No Smoking,No Drinking,High,High,High,0.01
 Heavy,Frequent,Low,Low,Low,0.8
 Moderate,Occasional,Medium,Medium,Medium,0.35
-None,None,High,High,High,0.03
+No Smoking,No Drinking,High,High,High,0.03
 Heavy,Frequent,Low,Low,Low,0.9
 Moderate,Occasional,Medium,Medium,Medium,0.4
-None,None,High,High,High,0.05
+No Smoking,No Drinking,High,High,High,0.05
 Heavy,Frequent,Low,Low,Low,0.7
 Moderate,Occasional,Medium,Medium,Medium,0.3
-None,None,High,High,High,0.02
+No Smoking,No Drinking,High,High,High,0.02
 Heavy,Frequent,Low,Low,Low,0.8
 Moderate,Occasional,Medium,Medium,Medium,0.4
-None,None,High,High,High,0.01
+No Smoking,No Drinking,High,High,High,0.01
 Heavy,Frequent,Low,Low,Low,0.75
 Moderate,Occasional,Medium,Medium,Medium,0.35

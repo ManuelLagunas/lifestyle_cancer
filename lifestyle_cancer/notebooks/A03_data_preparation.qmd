@@ -1,0 +1,6 @@
+---
+title: "Preparation of the data"
+format: html
+abstract: "This notebook contains the code to prepare the data for the analysis. Like encoding the categorical variables and split the data into training and testing sets."
+---
+

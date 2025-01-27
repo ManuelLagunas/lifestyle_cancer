@@ -12,6 +12,7 @@ import sys
 import pandas as pd
 import warnings
 from sklearn.preprocessing import OrdinalEncoder
+from sklearn.model_selection import train_test_split
 
 # Set the default style
 sys.path.append(os.getcwd()) # Add the current working directory to the path
@@ -85,4 +86,38 @@ jogging_unique
 jogging_categories = [['Low','Medium','High']]
 encorder = OrdinalEncoder(categories=jogging_categories)
 df['jogging_habit'] = encorder.fit_transform(df[['jogging_habit']]).astype(int)
+```
+
+## Data saving
+```{python}
+output_path = os.path.join('cancer_probabilities_encoded.csv')
+df.to_csv(output_path, index=False)
+```
+
+```{python}
+df.head()
+```
+
+# Splitting the data
+```{python}
+features = df.drop('probability_of_cancer', axis=1)
+target = df['probability_of_cancer']
+```
+
+```{python}
+features_train, features_validation, target_train, target_validation = train_test_split(features, target, test_size=0.2, random_state=42)
+```
+
+```{python}
+print("features_train shape:", features_train.shape)
+print("features_validation shape:", features_validation.shape)
+print("target_train shape:", target_train.shape)
+print("target_validation shape:", target_validation.shape)
+```
+
+```{python}
+features_train.to_csv('features_train.csv', index=False)
+features_validation.to_csv('features_validation.csv', index=False)
+target_train.to_csv('target_train.csv', index=False)
+target_validation.to_csv('target_validation.csv', index=False)
 ```

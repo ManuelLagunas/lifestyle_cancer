@@ -4,6 +4,7 @@
 import re
 import string
 import pandas as pd
+from scipy.stats import spearmanr
 
 #  ---------- Function to Calculate the percentage of missing values for each column in a DataFrame ----------
 def calculate_missing_values_percentage(df):
@@ -81,3 +82,22 @@ def contingency_table(df, column):
     # Create a contingency table
     table = pd.crosstab(df[column], df['probability_of_cancer'])
     return table
+
+
+#  ---------- Function to calculate the Spearman correlation between two columns ----------
+def calculate_spearman_coefficient(df, column):
+    """
+    Calculate the Spearman correlation coefficient between a specified column and the 'probability_of_cancer' column.
+
+    Args:
+        df (pd.DataFrame): The input DataFrame.
+        column (str): The name of the column to compare with 'probability_of_cancer'.
+
+    Returns:
+        float: Spearman correlation coefficient.
+        float: p-value of the Spearman correlation test.
+    """
+    # Calcular el coeficiente de Spearman
+    spearman_coefficient, p_value = spearmanr(df[column], df['probability_of_cancer'])
+    
+    return spearman_coefficient, p_value

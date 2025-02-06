@@ -101,3 +101,34 @@ def calculate_spearman_coefficient(df, column):
     spearman_coefficient, p_value = spearmanr(df[column], df['probability_of_cancer'])
     
     return spearman_coefficient, p_value
+
+
+# ---------- Function to plot ordinal variables vs target ----------
+def plot_ordinal_vs_target(df, ordinal_column, target_column, title):
+    """
+    Plot the relationship between an ordinal categorical column and a target column.
+
+    Args:
+        df (pd.DataFrame): The input DataFrame.
+        ordinal_column (str): The name of the ordinal categorical column.
+        target_column (str): The name of the target column.
+        title (str): The title of the plot.
+
+    Returns:
+        None
+    """
+    sns.scatterplot(
+        x=ordinal_column, 
+        y=target_column, 
+        data=df,
+        s=100  # Tamaño de puntos
+    )
+    sns.regplot(
+        x=ordinal_column, 
+        y=target_column, 
+        data=df, 
+        scatter=False, 
+        line_kws={"color": "red"}
+    )
+    plt.title(title)
+    plt.show()

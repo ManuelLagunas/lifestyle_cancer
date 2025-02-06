@@ -12,10 +12,10 @@ import sys
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import matplotlib.cm as cm
 import seaborn as sns
 import warnings
-from functions import contingency_table
+from scipy.stats import spearmanr
+from functions import calculate_spearman_coefficient
 
 # Set the default style
 sys.path.append(os.getcwd()) # Add the current working directory to the path
@@ -25,17 +25,27 @@ sys.path.append(os.getcwd()) # Add the current working directory to the path
 ## Reading The Data
 ```{python}
 # Read the dataset
-csv_path = os.path.join('cancer_probabilities.csv')
+csv_path = os.path.join('cancer_probabilities_encoded.csv')
 df = pd.read_csv(csv_path)
 ```
 
 # Data Analysis
+
+## Spermans Correlation Coefficient
 ```{python}
-contingency_smoking = contingency_table(df, 'smoking_habit')
-contingency_smoking
+# Calculate the Spearman's rank correlation coefficient for all columns except 'probability_of_cancer'
+results = {}
+for column in df.columns:
+    if column != 'probability_of_cancer':
+        spearman_coefficient, p_value = calculate_spearman_coefficient(df, column)
+        results[column] = {'Spearman Coefficient': spearman_coefficient, 'p-value': p_value}
+
+# Convert the results to a DataFrame for better visualization
+spearman_df = pd.DataFrame(results).T
+spearman_df
 ```
 
-
+## Correlation visualization
 ```{python}
-df.
+
 ```

@@ -1,6 +1,10 @@
 ---
-title: "Data analysis"
-format: html
+title: "Correlation Data Analysis"
+abstract: |
+  This notebook contains the correlation data analysis of the cancer probabilities dataset.
+  
+  **Insights:**
+  According to the correlation study conducted between habits and the likelihood of developing cancer, it suggests that smoking and alcohol consumption habits have a strong relationship with the probability of developing cancer. Conversely, habits related to physical activity have a strong negative relationship with the probability of developing cancer.
 ---
 
 # Reading and setup
@@ -15,7 +19,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import warnings
 from scipy.stats import spearmanr
-from functions import calculate_spearman_coefficient
+from functions import calculate_spearman_coefficient, plot_ordinal_vs_target
 
 # Set the default style
 sys.path.append(os.getcwd()) # Add the current working directory to the path
@@ -47,5 +51,55 @@ spearman_df
 
 ## Correlation visualization
 ```{python}
+# Smoking habit and probability of cancer
+#| label: fig-smoking-habit-correlation
 
+# Plot the relationship between smoking_habit and probability_of_cancer
+plot_ordinal_vs_target(df, 'smoking_habit', 'probability_of_cancer', 'Relationship between Smoking Habit and Probability of Cancer')
+```
+
+```{python}
+# Drinking habit and probability of cancer
+#| label: fig-drinking-habit-correlation
+
+# Plot the relationship between drinking_habit and probability_of_cancer
+plot_ordinal_vs_target(df, 'drinking_habit', 'probability_of_cancer', 'Relationship between Drinking Habit and Probability of Cancer')
+```
+
+```{python}
+# Biking habit and probability of cancer
+#| label: fig-biking-habit-correlation
+
+# Plot the relationship between biking_habit and probability_of_cancer
+plot_ordinal_vs_target(df, 'biking_habit', 'probability_of_cancer', 'Relationship between Biking Habit and Probability of Cancer')
+```
+
+```{python}
+# Walking habit and probability of cancer
+#| label: fig-walking-habit-correlation
+
+# Plot the relationship between walking_habit and probability_of_cancer
+plot_ordinal_vs_target(df, 'walking_habit', 'probability_of_cancer', 'Relationship between Walking Habit and Probability of Cancer')
+```
+
+```{python}
+# Jogging habit and probability of cancer
+<#| label: fig-jogging-habit-correlation
+
+# Plot the relationship between jogging_habit and probability_of_cancer
+plot_ordinal_vs_target(df, 'jogging_habit', 'probability_of_cancer', 'Relationship between Jogging Habit and Probability of Cancer')
+```
+
+```{python}
+# Correlation matrix
+#| label: fig-correlation-matrix
+
+# Calculate the correlation matrix
+correlation_matrix = df.corr(method='spearman')
+
+# Plot the correlation matrix
+plt.figure(figsize=(12, 10))
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt=".2f")
+plt.title('Spearman Correlation Matrix')
+plt.show()
 ```
